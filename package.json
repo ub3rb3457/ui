@@ -1,0 +1,26 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "reset": "rm -rf node_modules && rm yarn.lock && yarn install"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxt/ui": "latest",
+    "@nuxtjs/color-mode": "^3.3.2",
+    "@nuxtjs/tailwindcss": "^6.11.2",
+    "nuxt": "latest"
+  },
+  "dependencies": {
+    "vue-use-fixed-header": "^2.0.2"
+  },
+  "resolutions": {
+    "string-width": "4.2.3"
+  }
+}
