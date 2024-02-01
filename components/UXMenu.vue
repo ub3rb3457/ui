@@ -5,19 +5,19 @@ const items = [{
   slot: 'menu-links'
 }, {
   label: 'Installation',
-  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
+  slot: 'menu-links'
 }, {
   label: 'Theming',
-  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
+  slot: 'menu-links'
 }, {
   label: 'Layouts',
-  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
+  slot: 'menu-links'
 }, {
   label: 'Components',
-  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
+  slot: 'menu-links'
 }, {
   label: 'Utilities',
-  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.'
+  slot: 'menu-links'
 }]
 </script>
 
@@ -25,7 +25,7 @@ const items = [{
   <UAccordion :items="items" :ui="{ wrapper: 'flex flex-col w-full' }">
     <template #default="{ item, index, open }">
       <UButton color="black" variant="ghost" :ui="{ rounded: 'rounded-none', padding: { sm: 'p-3' } }">
-        <span class="truncate">{{ index + 1 }}. {{ item.label }}</span>
+        <span class="truncate">{{ item.label }}</span>
         <template #trailing>
           <UIcon
             name="i-heroicons-chevron-right-20-solid"

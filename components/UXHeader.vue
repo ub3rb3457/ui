@@ -9,7 +9,8 @@ const { styles } = useFixedHeader(headerRef);
 <template>
   <header class="Header" ref="headerRef" :style="styles">
     <UAvatar class="float-start" />
-    <ColorModeButton class="float-end" />
+    <UXNavBar class="justify-center" />
+    <ColorModeButton />
   </header>
 </template>
 

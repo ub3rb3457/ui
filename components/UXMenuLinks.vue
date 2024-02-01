@@ -18,7 +18,7 @@ const links = [{
   <UVerticalNavigation
     :links="links"
     :ui="{
-      wrapper: 'border-s border-gray-200 dark:border-gray-800 space-y-2',
+      wrapper: 'border-s border-gray-200 dark:border-gray-800 space-y-1 ml-4',
       base: 'group block border-s -ms-px lg:leading-6 before:hidden',
       padding: 'p-0 ps-4',
       rounded: '',
