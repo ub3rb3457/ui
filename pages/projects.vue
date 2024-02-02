@@ -1,5 +1,7 @@
 <script setup lang="ts">
+    //const { data } = await useAsyncData('page-data', () => queryContent('/').findOne())
     const toast = useToast()
+    const { navigation, page, toc, surround, globals } = useContent()
 </script>
 
 <template>
@@ -15,8 +17,11 @@
           <UXMenu />
         </slot>
       </div>
-      <div class="col-span-10">
-        <slot />
+      <div class="col-span-8">
+        <ContentDoc />
+      </div>
+      <div class="col-span-2">
+        <UXToc :toc="toc" />
       </div>
     </div>
   </UContainer>
