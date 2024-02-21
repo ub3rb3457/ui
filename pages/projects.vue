@@ -2,6 +2,7 @@
     //const { data } = await useAsyncData('page-data', () => queryContent('/').findOne())
     const toast = useToast()
     const { navigation, page, toc, surround, globals } = useContent()
+    
 </script>
 
 <template>
@@ -17,7 +18,7 @@
           <UXMenu />
         </slot>
       </div>
-      <div class="col-span-8">
+      <div id="content-doc" class="col-span-8">
         <ContentDoc />
       </div>
       <div class="col-span-2">
@@ -28,5 +29,13 @@
   <UNotifications />
 </template>
 
-<style scoped>
+<style>
+  #content-doc{
+      h1, h2, h3, h4, h5, h6 {
+      margin-top: 30px;
+    }
+  }
+  p {
+    margin-top: 30px;
+  }
 </style>
