@@ -10,14 +10,21 @@ const { option } = useSortable(el, list, {
 </script>
 
 <template>
-  <button @click="option('animation', 150)">
+  <UButton @click="option('animation', 150)">
     on animation
-  </button>
-  <button @click="option('animation', 0)">
+  </UButton>
+  <UButton @click="option('animation', 0)">
     off animation
-  </button>
-  <div ref="el" class="flex flex-col gap-2 p-4 w-300px h-200px m-auto bg-gray-500/5 rounded">
-    <div v-for="item in list" :key="item.id" class="h20 bg-gray-500/5 rounded p-3">
+  </UButton>
+  <div 
+    ref="el" 
+    class="flex flex-col gap-2 p-4 w-300px h-200px m-auto bg-gray-500/5 rounded"
+  >
+    <div 
+      v-for="item in list" 
+      :key="item.id"
+      class="h20 bg-gray-500/5 rounded p-3"
+    >
       {{ item.name }}
     </div>
   </div>

@@ -1,28 +1,34 @@
 <script setup lang="ts">
   defineProps({
-    toc: Object
+    toc: {
+      type: Object,
+      required: true
+    }
   })
-  const observerOptions = {
-    /* root: null,
-    rootMargin: "40px",
-    threshold: 0.5 */
-  };
-
-  const currentSection = ref();
+ 
+  const currentSection = reactive({
+    $array:[]
+  });
   onMounted(() => {
     /* grab all the headings and assign them observers */
     const nodes = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
     if (nodes === undefined) return;
-    console.log(nodes);
     // Creating the intersection observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting)
-          //update current state if the target element intersects 
-          //with the intersection observer's root or root margin
-          currentSection.value = entry.target.getAttribute("id");
-        });
-    }, observerOptions);
+        const $id  = entry.target.getAttribute("id");
+        if (entry.isIntersecting){
+          if (currentSection.$array.indexOf($id) === -1)
+            currentSection.$array.push($id);       
+        } else {
+          if (currentSection.$array.includes($id))
+            // remove the id from the array if the target element is not intersecting
+            currentSection.$array.splice(currentSection.$array.indexOf($id), 1);
+        }
+      });
+    }, {
+      root: null,
+    });
 
     nodes.forEach((target) => {
       observer.observe(target);
@@ -32,13 +38,21 @@
 
 <template>
   <div>
-    <ul class="fixed top-26" v-if="toc && toc.links">
-      <li v-for="link in toc.links" :key="link.text">
-        
-        <a :href="`#${link.id}`" :class="{
-          'text-primary': currentSection === link.id,
-          'text-gray-500': currentSection !== link.id
-        }">
+    <ul 
+      v-if="toc && toc.links" 
+      class="fixed top-26"
+    >
+      <li 
+        v-for="link in toc.links" 
+        :key="link.text"
+      >  
+        <a 
+          :href="`#${link.id}`" 
+          :class="{
+            'text-primary': currentSection.$array.includes(link.id) === true,
+            'text-gray-500': currentSection.$array.includes(link.id) === false
+          }"  
+        >
           {{ link.text }}
         </a>
       </li>
